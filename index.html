@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla desde Excel</title>
+  <!-- Agrega la biblioteca SheetJS desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <!-- Agrega el campo de entrada para el número -->
+  <input type="text" id="numero-a-buscar" placeholder="Ingrese el número">
+
+  <!-- Agrega el botón para iniciar la búsqueda -->
+  <button onclick="iniciarBusqueda()">Buscar</button>
+
+  <!-- Agrega el contenedor para la tabla -->
+  <div id="tabla-container"></div>
+
+  <!-- Agrega el script JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
