@@ -1,19 +1,13 @@
-function guardarInformacion() {
-  // Obtén el valor del input
-  var numero = document.getElementById('numeroInput').value;
-
-  // Muestra el número guardado en el elemento correspondiente
-  document.getElementById('numeroGuardado').innerText = 'Número guardado: ' + numero;
-
-  // Aquí puedes agregar la lógica para guardar la información, por ejemplo, enviarla a un servidor, almacenarla en localStorage, etc.
-  // console.log('Número guardado:', numero);
-
-  // Puedes agregar más acciones según tus necesidades
-}
 function iniciarBusqueda() {
   // Llama a la función para leer el archivo Excel y construir la tabla
   leerArchivoExcel();
-}
+
+    // Después de realizar la búsqueda y obtener los resultados, puedes ocultar el elemento "por-favor-digite"
+    var porFavorDigite = document.querySelector('.por-favor-digite');
+    if (porFavorDigite) {
+      porFavorDigite.style.display = 'none';
+    }
+  }
 
 // Función para leer el archivo Excel y construir la tabla
 function leerArchivoExcel() {
