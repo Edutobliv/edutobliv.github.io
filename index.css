@@ -79,7 +79,7 @@
   align-self: stretch;
   overflow: hidden;
 }
-.input {
+.input-estilo {
   border-radius: var(--br-16xl);
   background-color: var(--wspregistraduriagovco-nero);
   border: 2px solid var(--wspregistraduriagovco-prussian-blue);
@@ -123,14 +123,20 @@
   font-weight: 600;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-.input1 {
+.button-estilo {
+  border: none;
   border-radius: 45px;
   background-color: var(--wspregistraduriagovco-prussian-blue);
-  display: flex;
-  flex-direction: row;
+  background-size: auto;
+  color: white;
+  font-family: "Open Sans" !important;
+  font-weight: 600 !important;
+  font-size: 1em!important;
+  height: 45px;
   align-items: flex-start;
   justify-content: center;
-  padding: 3px 27.834163665771484px 2px 28.165836334228516px;
+  padding: 0 20.343231201171875px 0 17.656768798828125px;
+  text-align: center !important;
 }
 .divbottommargin {
   align-self: stretch;
@@ -229,7 +235,7 @@
 }
 .frame3 {
   width: 1191px;
-  height: 506px;
+  height: 400px;
   flex-shrink: 0;
   flex-direction: row;
   align-items: center;
@@ -848,7 +854,7 @@
   justify-content: flex-start;
   padding: 0 2px 0 0;
 }
-.fecha-actual-03 {
+.fecha-actual-act {
   position: relative;
   line-height: 27px;
   font-weight: 300;
@@ -889,7 +895,8 @@
 .register {
   position: relative;
   background-color: #eafcfb;
-  width: 100%;
+  width: 100%; /* 100% del ancho del viewport */
+  margin: 0;    /* Elimina los márgenes predeterminados del body */
   height: 1453px;
   text-align: left;
   font-size: var(--wspregistraduriagovco-open-sans-regular-16-size);

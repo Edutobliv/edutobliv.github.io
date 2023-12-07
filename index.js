@@ -105,6 +105,28 @@ for (var i = 0; i < 3; i++) {
   }
 }
 
+function obtenerFechaActual() {
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  const fecha = new Date();
+  const dia = fecha.getDate();
+  const mes = meses[fecha.getMonth()];
+  const año = fecha.getFullYear();
+
+  // Asigna la cadena formateada a la variable fecha_actual_act
+  const fecha_actual_act = `Fecha actual: ${dia} de ${mes} de ${año}`;
+
+  // Asigna la variable a un elemento HTML con el ID "miElemento"
+  document.getElementById("miElemento").innerText = fecha_actual_act;
+}
+
+// Llama a la función para obtener y mostrar la fecha actual
+obtenerFechaActual();
+
+
 var linkCobrandingNegropng = document.getElementById("linkCobrandingNegropng");
 if (linkCobrandingNegropng) {
   linkCobrandingNegropng.addEventListener("click", function() {
