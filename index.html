@@ -1,24 +1,607 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabla desde Excel</title>
-  <!-- Agrega la biblioteca SheetJS desde CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <!-- Agrega el campo de entrada para el número -->
-  <input type="text" id="numero-a-buscar" placeholder="Ingrese el número">
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-  <!-- Agrega el botón para iniciar la búsqueda -->
-  <button onclick="iniciarBusqueda()">Buscar</button>
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Font Awesome 5 Free:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="register">
+      <div class="frame">
+        <div class="frame1">
+          <div class="superior">
+            <div class="divcontainer">
+              <img
+                class="link-cobranding-negropng"
+                alt=""
+                src="./public/link--cobranding-negropng1@2x.png"
+                id="linkCobrandingNegropng"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame2">
+        <div class="frame3">
+          <div class="identificacion">
+            <div class="form">
+              <div class="divconsulta-externa">
+                <b class="label-no">No. Identificación:</b>
+                <div class="frame4">
+                  <div class="input">
+                    <div class="divplaceholder">
+                      <input type="text" id="numero-a-buscar" placeholder="Ingrese el número">
+                    </div>
+                  </div>
+                  <div class="campo-requerido">Campo requerido</div>
+                </div>
+              </div>
+              <div class="divbottommargin">
+                <div class="input1">
+                  <button onclick="iniciarBusqueda()">Buscar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="informacion">
+            <div class="heading-3">
+              <div class="informacin">INFORMACIÓN</div>
+            </div>
+            <div class="por-favor-digite">
+              Por favor digite su número de identidad y dé clic en el botón
+              consultar.
+              <div id="tabla-container"></div>
+            </div>
+          </div>
+        </div>
+        <div id="numeroGuardado"></div>
+        <div class="parte-baja">
+          <div class="list">
+            <div class="item-link">
+              <a
+                class="institucional"
+                href="https://www.registraduria.gov.co/-Portada.html"
+                target="_blank"
+                >Institucional</a
+              >
+            </div>
+            <div class="item-link1">
+              <a
+                class="institucional"
+                href="https://www.registraduria.gov.co/-Portafolio-de-servicios-791-.html"
+                target="_blank"
+                >Servicios a la ciudadanía</a
+              >
+            </div>
+            <div class="item-link2">
+              <a
+                class="institucional"
+                href="https://ainteractivo.net/cedaesite/"
+                target="_blank"
+                >CEDAE (Datos para la democracia)</a
+              >
+            </div>
+          </div>
+          <div class="frame5">
+            <div class="divcontainer1">
+              <div class="divrow">
+                <div class="frame6">
+                  <div class="divdisclamer">
+                    <div class="frame7">
+                      <img
+                        class="escudo-rnec-rnec20logo20blan-icon"
+                        alt=""
+                        src="./public/escudo-rnec-rnec20logo20blancopng1@2x.png"
+                      />
+                    </div>
+                    <div class="frame8">
+                      <div class="divsocialnet-container">
+                        <div class="link" id="linkContainer">
+                          <div class="ico-footer-facebooksvg-fill">
+                            <img
+                              class="ico-footer-facebooksvg-icon"
+                              alt=""
+                              src="./public/icofooterfacebooksvg.svg"
+                            />
+                          </div>
+                        </div>
+                        <div class="link" id="linkContainer1">
+                          <div class="ico-footer-twittersvg-fill">
+                            <img
+                              class="ico-footer-twittersvg-icon"
+                              alt=""
+                              src="./public/icofootertwittersvg.svg"
+                            />
+                          </div>
+                        </div>
+                        <div class="link" id="linkContainer2">
+                          <div class="ico-footer-youtubesvg-fill">
+                            <img
+                              class="ico-footer-youtubesvg-icon"
+                              alt=""
+                              src="./public/icofooteryoutubesvg.svg"
+                            />
+                          </div>
+                        </div>
+                        <div class="link" id="linkContainer3">
+                          <div class="ico-footer-instagramsvg-fill">
+                            <img
+                              class="ico-footer-instagramsvg-icon"
+                              alt=""
+                              src="./public/icofooterinstagramsvg.svg"
+                            />
+                          </div>
+                        </div>
+                        <div class="link" id="linkContainer4">
+                          <div class="ico-footer-linkedinsvg-fill">
+                            <img
+                              class="ico-footer-linkedinsvg-icon"
+                              alt=""
+                              src="./public/icofooterlinkedinsvg.svg"
+                            />
+                          </div>
+                        </div>
+                        <img
+                          class="link-icon"
+                          alt=""
+                          src="./public/link1@2x.png"
+                          id="linkIcon"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="divmenu-footer">
+                    <div class="pwhite">
+                      <div class="horario-de-atencin">
+                        Horario de atención correspondencia de
+                      </div>
+                      <div class="lunes-a-viernes-container">
+                        <p class="lunes-a-viernes">
+                          lunes a viernes de 8:00 a. m. a 4:30 p. m. en
+                        </p>
+                        <p class="lunes-a-viernes">
+                          jornada continua (Sede CAN av. calle 26 nº 51-
+                        </p>
+                        <p class="lunes-a-viernes">50)</p>
+                      </div>
+                    </div>
+                    <div class="pwhite1">
+                      <div class="conmutador-57-601">
+                        Conmutador: +57 (601) 220 2880
+                      </div>
+                    </div>
+                    <div class="pwhite2">
+                      <div class="horario-de-atencin">
+                        Copyright 2022 - Todos los derechos
+                      </div>
+                      <div class="lunes-a-viernes-container">
+                        <p class="lunes-a-viernes">
+                          reservados Registraduría Nacional del Estado
+                        </p>
+                        <p class="lunes-a-viernes">Civil.</p>
+                      </div>
+                    </div>
+                    <div class="pwhite3">
+                      <div class="horario-de-atencin">
+                        Centro de Atención e Información Ciudadana
+                      </div>
+                      <div class="lunes-a-viernes-container">
+                        <p class="lunes-a-viernes">
+                          (CAIC): Carrera 7.ª n.º 32-12, Piso 2, local 205,
+                        </p>
+                        <p class="lunes-a-viernes">
+                          Centro Comercial San Martín
+                        </p>
+                        <p class="lunes-a-viernes">
+                          Horario: 8:00 a. m. a 4:00 p. m., en jornada
+                        </p>
+                        <p class="lunes-a-viernes">continua</p>
+                      </div>
+                    </div>
+                    <div class="pwhite4">
+                      <div class="av-calle-26">
+                        Av. Calle 26 n.º 51-50, CAN, Bogotá, Colombia.
+                      </div>
+                      <div class="lunes-a-viernes-container">CP: 111321</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="divcontent-footer">
+                  <div class="divcontent-sections">
+                    <div class="link5" id="linkContainer5">
+                      <div class="pwhite5">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://www.registraduria.gov.co/Politicas-de-privacidad-y-condiciones-de-uso.html"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Políticas de</p>
+                          <p class="lunes-a-viernes">privacidad</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer6">
+                      <div class="pwhite6">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://correo.registraduria.gov.co/owa/auth/logon.aspx"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Correo</p>
+                          <p class="lunes-a-viernes">institucional</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer7">
+                      <div class="pwhite7">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://www.office.com/"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Correo</p>
+                          <p class="lunes-a-viernes">institucional</p>
+                          <p class="lunes-a-viernes">(Office 365)</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer8">
+                      <div class="pwhite8">
+                        <a
+                          class="translate"
+                          href="http://translate.google.com/translate"
+                          target="_blank"
+                          >Translate</a
+                        >
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer9">
+                      <div class="pwhite9">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://www.registraduria.gov.co/Politicas-de-privacidad-y-condiciones-de-uso.html"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Condiciones de</p>
+                          <p class="lunes-a-viernes">uso</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="divcontent-sections1">
+                    <div class="link5" id="linkContainer10">
+                      <div class="pwhite10">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://www.registraduria.gov.co/"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Mapa del</p>
+                          <p class="lunes-a-viernes">sitio</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer11">
+                      <div class="pwhite11">
+                        <a
+                          class="translate"
+                          href="https://gestordocumental.registraduria.go.co:4450/"
+                          target="_blank"
+                          >Contáctenos</a
+                        >
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer12">
+                      <div class="pwhite12">
+                        <a
+                          class="translate"
+                          href="https://biblioteca.registraduria.gov.co/opac_css/"
+                          target="_blank"
+                          >Biblioteca</a
+                        >
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer13">
+                      <div class="pwhite13">
+                        <a
+                          class="translate"
+                          href="https://intranet.registraduria.gov.co/"
+                          target="_blank"
+                          >Intranet</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="divcontent-sections2">
+                    <div class="link5" id="linkContainer14">
+                      <div class="pwhite11">
+                        <a
+                          class="translate"
+                          href="https://wsp.registraduria.gov.co/normatividad/"
+                          target="_blank"
+                          >Normativa</a
+                        >
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer15">
+                      <div class="pwhite15">
+                        <a
+                          class="polticas-de-privacidad-container"
+                          href="https://www.registraduria.gov.co/-Procedimientos-150-.html"
+                          target="_blank"
+                        >
+                          <p class="lunes-a-viernes">Correos</p>
+                          <p class="lunes-a-viernes">judiciales</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer16">
+                      <div class="pwhite16">
+                        <a
+                          class="translate"
+                          href="https://gestordocumental.registraduria.go.co:4450/"
+                          target="_blank"
+                          >PQRSDC</a
+                        >
+                      </div>
+                    </div>
+                    <div class="link5" id="linkContainer17">
+                      <div class="pwhite16">
+                        <a
+                          class="translate"
+                          href="https://www.registraduria.gov.co/Glosario.html"
+                          target="_blank"
+                          >Glosario</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divrow1">
+              <div class="divcol-6">
+                <div class="pwhite18">
+                  <div class="ltima-actualizacin-1139">
+                    Última actualización 11:39 am septiembre 30 de 2022
+                  </div>
+                </div>
+              </div>
+              <div class="divcol-6">
+                <div class="pwhite19">
+                  <div class="recomendado-uso-de">Recomendado uso de</div>
+                  <div class="link18" id="linkContainer18">
+                    <div class="frame9">
+                      <div class="before">
+                        <img class="icon" alt="" src="./public/icon.svg" />
+                      </div>
+                    </div>
+                    <div class="frame10">
+                      <a
+                        class="polticas-de-privacidad-container"
+                        href="https://www.google.com/chrome/browser/desktop/index.html"
+                        target="_blank"
+                      >
+                        Google Chrome</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accesos">
+        <div class="item-link-container">
+          <a
+            class="inicio"
+            href="https://wsp.registraduria.gov.co/estado_docs/"
+            target="_blank"
+            >Inicio</a
+          >
+        </div>
+        <div class="frame11">
+          <div class="div">/ </div>
+          <div class="consultar1">Consultar</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="divclearfix">
+          <div class="heading-1">
+            <div class="estado-del-trmite">
+              ESTADO DEL TRÁMITE DEL DOCUMENTO DE IDENTIDAD
+            </div>
+          </div>
+          <div class="span">
+            <div class="fecha-actual-03">
+              Fecha actual: 03 de diciembre de 2023
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+    <script>
 
-  <!-- Agrega el contenedor para la tabla -->
-  <div id="tabla-container"></div>
-
-  <!-- Agrega el script JavaScript -->
-  <script src="script.js"></script>
-</body>
+      var linkCobrandingNegropng = document.getElementById("linkCobrandingNegropng");
+      if (linkCobrandingNegropng) {
+        linkCobrandingNegropng.addEventListener("click", function () {
+          window.open("https://www.registraduria.gov.co/");
+        });
+      }
+      
+      var linkContainer = document.getElementById("linkContainer");
+      if (linkContainer) {
+        linkContainer.addEventListener("click", function () {
+          window.open("https://www.facebook.com/RegistraduriaNacional/");
+        });
+      }
+      
+      var linkContainer1 = document.getElementById("linkContainer1");
+      if (linkContainer1) {
+        linkContainer1.addEventListener("click", function () {
+          window.open("https://twitter.com/Registraduria");
+        });
+      }
+      
+      var linkContainer2 = document.getElementById("linkContainer2");
+      if (linkContainer2) {
+        linkContainer2.addEventListener("click", function () {
+          window.open("https://www.youtube.com/user/RegistraduriaNal");
+        });
+      }
+      
+      var linkContainer3 = document.getElementById("linkContainer3");
+      if (linkContainer3) {
+        linkContainer3.addEventListener("click", function () {
+          window.open("https://www.instagram.com/registraduria/");
+        });
+      }
+      
+      var linkContainer4 = document.getElementById("linkContainer4");
+      if (linkContainer4) {
+        linkContainer4.addEventListener("click", function () {
+          window.open(
+            "https://www.linkedin.com/company/registradur%C3%ADa-nacional-del-estado-civil/"
+          );
+        });
+      }
+      
+      var linkIcon = document.getElementById("linkIcon");
+      if (linkIcon) {
+        linkIcon.addEventListener("click", function () {
+          window.open(
+            "https://www.linkedin.com/company/registradur%C3%ADa-nacional-del-estado-civil/"
+          );
+        });
+      }
+      
+      var linkContainer5 = document.getElementById("linkContainer5");
+      if (linkContainer5) {
+        linkContainer5.addEventListener("click", function () {
+          window.open(
+            "https://www.registraduria.gov.co/Politicas-de-privacidad-y-condiciones-de-uso.html"
+          );
+        });
+      }
+      
+      var linkContainer6 = document.getElementById("linkContainer6");
+      if (linkContainer6) {
+        linkContainer6.addEventListener("click", function () {
+          window.open("https://correo.registraduria.gov.co/owa/auth/logon.aspx");
+        });
+      }
+      
+      var linkContainer7 = document.getElementById("linkContainer7");
+      if (linkContainer7) {
+        linkContainer7.addEventListener("click", function () {
+          window.open("https://www.office.com/");
+        });
+      }
+      
+      var linkContainer8 = document.getElementById("linkContainer8");
+      if (linkContainer8) {
+        linkContainer8.addEventListener("click", function () {
+          window.open("http://translate.google.com/translate");
+        });
+      }
+      
+      var linkContainer9 = document.getElementById("linkContainer9");
+      if (linkContainer9) {
+        linkContainer9.addEventListener("click", function () {
+          window.open(
+            "https://www.registraduria.gov.co/Politicas-de-privacidad-y-condiciones-de-uso.html"
+          );
+        });
+      }
+      
+      var linkContainer10 = document.getElementById("linkContainer10");
+      if (linkContainer10) {
+        linkContainer10.addEventListener("click", function () {
+          window.open("https://www.registraduria.gov.co/");
+        });
+      }
+      
+      var linkContainer11 = document.getElementById("linkContainer11");
+      if (linkContainer11) {
+        linkContainer11.addEventListener("click", function () {
+          window.open("https://gestordocumental.registraduria.go.co:4450/");
+        });
+      }
+      
+      var linkContainer12 = document.getElementById("linkContainer12");
+      if (linkContainer12) {
+        linkContainer12.addEventListener("click", function () {
+          window.open("https://biblioteca.registraduria.gov.co/opac_css/");
+        });
+      }
+      
+      var linkContainer13 = document.getElementById("linkContainer13");
+      if (linkContainer13) {
+        linkContainer13.addEventListener("click", function () {
+          window.open("https://intranet.registraduria.gov.co/");
+        });
+      }
+      
+      var linkContainer14 = document.getElementById("linkContainer14");
+      if (linkContainer14) {
+        linkContainer14.addEventListener("click", function () {
+          window.open("https://wsp.registraduria.gov.co/normatividad/");
+        });
+      }
+      
+      var linkContainer15 = document.getElementById("linkContainer15");
+      if (linkContainer15) {
+        linkContainer15.addEventListener("click", function () {
+          window.open("https://www.registraduria.gov.co/-Procedimientos-150-.html");
+        });
+      }
+      
+      var linkContainer16 = document.getElementById("linkContainer16");
+      if (linkContainer16) {
+        linkContainer16.addEventListener("click", function () {
+          window.open("https://gestordocumental.registraduria.go.co:4450/");
+        });
+      }
+      
+      var linkContainer17 = document.getElementById("linkContainer17");
+      if (linkContainer17) {
+        linkContainer17.addEventListener("click", function () {
+          window.open("https://www.registraduria.gov.co/Glosario.html");
+        });
+      }
+      
+      var linkContainer18 = document.getElementById("linkContainer18");
+      if (linkContainer18) {
+        linkContainer18.addEventListener("click", function () {
+          window.open("https://www.google.com/chrome/browser/desktop/index.html");
+        });
+      }
+      </script>
+  </body>
 </html>
