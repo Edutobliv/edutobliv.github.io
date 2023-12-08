@@ -54,16 +54,17 @@
                 <div class="frame4">
                   <div class="input">
                     <div class="divplaceholder">
-                      <input type="text" id="numero-a-buscar" placeholder="Ingrese el número" class="input-estilo">
+                      <input type="text" id="numero-a-buscar" placeholder="digíte el número sin puntos ni comas" class="input-estilo">
                     </div>
+                    <div class="campo-requerido">Campo requerido</div>
+                    <div id= 'tu-elemento-captcha' class="h-captcha" data-sitekey="f3472822-9172-40b2-944f-1c6e3118cd49">
+                    </div>                  
                   </div>
-                  <div class="campo-requerido">Campo requerido</div>
-                </div>
+                  </div>
               </div>
               <div class="divbottommargin">
                 <div class="input1">
-                  <button onclick="iniciarBusqueda()" class="button-estilo">CONSULTAR</button>
-                </div>
+                  <button onclick="verificarCaptcha()" class="h-captcha_button-estilo">CONSULTAR</button>                </div>
               </div>
             </div>
           </div>
@@ -443,6 +444,7 @@
       </div>
     </div>
     <script src="index.js"></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>    
     <script>
 
       var linkCobrandingNegropng = document.getElementById("linkCobrandingNegropng");

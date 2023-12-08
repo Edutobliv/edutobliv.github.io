@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .link-cobranding-negropng {
   width: 100%;
   position: relative;
@@ -86,22 +94,40 @@
   box-sizing: border-box;
   width: 294px;
   height: 60px;
-  padding: var(--padding-lgi) var(--padding-lg);
+  padding: 16px !important;
+  font-size: 16px !important;
+  font-family: "Open Sans" !important;
 }
 .campo-requerido {
   position: relative;
   font-size: 12.25px;
-  line-height: 21px;
+  line-height: 23px;
   font-family: var(--font-inter);
   color: var(--wspregistraduriagovco-green);
+  margin-left: 12px; /*Para moverlo a la derecha*/
 }
+
+.h-captcha {
+  width: 295px; /* Puedes ajustar el ancho según tus necesidades */
+  height: 74px; /* Puedes ajustar la altura según tus necesidades */
+  background-color: #f0f0f0; /* Color de fondo del contenedor */
+  margin-top: 10px; /* Espacio encima del contenedor */
+}
+
+.label-container {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 151px;
+}
+
 .frame4 {
   position: absolute;
   top: 23px;
   left: 0;
   width: 294px;
   height: 84px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -123,7 +149,7 @@
   font-weight: 600;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-.button-estilo {
+.h-captcha_button-estilo {
   border: none;
   border-radius: 45px;
   background-color: var(--wspregistraduriagovco-prussian-blue);
@@ -149,6 +175,7 @@
   font-size: var(--wspregistraduriagovco-lato-regular-14-size);
   color: var(--wspregistraduriagovco-nero);
   font-family: var(--wspregistraduriagovco-open-sans-regular-16);
+  margin-top: 70px;
 }
 .form,
 .identificacion {
@@ -220,6 +247,7 @@
   width: 800px;
 }
 .informacion {
+  font-family: 'Raleway',sans-serif;
   border-radius: var(--br-16xl);
   background-color: var(--wspregistraduriagovco-nero);
   flex-direction: column;
@@ -228,7 +256,7 @@
   box-sizing: border-box;
   min-height: 20px;
   align-self: start;
-  margin-top: 82px;
+  margin-top: 9px;
   text-align: center;
   font-size: 24px;
   color: var(--wspregistraduriagovco-mine-shaft);
@@ -859,7 +887,6 @@
   line-height: 27px;
   font-weight: 300;
   display: inline-block;
-  max-width: 1140px;
 }
 .span {
   align-self: stretch;
@@ -896,9 +923,8 @@
   position: relative;
   background-color: #eafcfb;
   width: 100%; /* 100% del ancho del viewport */
-  margin: 0;    /* Elimina los márgenes predeterminados del body */
+  margin: 0 auto; /* Agrega esta línea para centrar horizontalmente */  
   height: 1453px;
-  text-align: left;
   font-size: var(--wspregistraduriagovco-open-sans-regular-16-size);
   color: var(--wspregistraduriagovco-prussian-blue);
   font-family: var(--font-raleway);
