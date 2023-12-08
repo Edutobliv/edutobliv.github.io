@@ -6,6 +6,22 @@ body {
   justify-content: center;
 }
 
+.frame-off{
+  width: 480px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xl) 201.33016967773438px var(--padding-2xl)
+    202.66983032226562px;
+  box-sizing: border-box;
+  background-image: url(./public/item--link3@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
 .link-cobranding-negropng {
   width: 100%;
   position: relative;
@@ -48,9 +64,6 @@ body {
 }
 .frame,
 .frame1 {
-  overflow: hidden;
-}
-.frame1 {
   align-self: stretch;
   align-items: flex-end;
   justify-content: center;
@@ -59,7 +72,7 @@ body {
   position: absolute;
   top: 63px;
   left: -6px;
-  width: 1452px;
+  width: 100%;
   align-items: center;
   justify-content: flex-start;
 }
@@ -127,7 +140,6 @@ body {
   left: 0;
   width: 294px;
   height: 84px;
-  /*overflow: hidden;*/
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -307,9 +319,9 @@ body {
 .list {
   position: absolute;
   width: 100%;
-  top: -36px;
-  right: 1px;
-  left: -1px;
+  /*top: -30px;*/
+  right: 0px; /*cambiar por corte de seccion*/
+  left: 0px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -768,7 +780,7 @@ body {
 }
 .divrow1,
 .frame5 {
-  width: 1441px;
+  width: 100%;
   display: flex;
 }
 .divrow1 {
@@ -783,8 +795,7 @@ body {
 }
 .frame5 {
   position: absolute;
-  top: 55px;
-  left: 1px;
+  top: 57px;
   overflow: hidden;
   flex-direction: column;
   align-items: center;
@@ -806,18 +817,18 @@ body {
   color: var(--wspregistraduriagovco-bismark);
   font-family: var(--wspregistraduriagovco-lato-regular-14);
 }
+
 .frame2 {
   position: absolute;
   top: 296px;
   left: 0;
-  width: 1440px;
+  width: 100%;
   height: 1156.8px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 96px;
+  gap: 74px;
 }
 .inicio {
   color: inherit;
@@ -855,7 +866,7 @@ body {
 .accesos {
   position: absolute;
   top: 216.5px;
-  left: 1263px;
+  left: 1460px;
   width: 123px;
   height: 19px;
   align-items: flex-start;
@@ -910,7 +921,7 @@ body {
 .section {
   position: absolute;
   top: 193px;
-  left: 160px;
+  left: 380px;
   width: 805px;
   height: 75px;
   padding: 5px 0;
@@ -923,7 +934,6 @@ body {
   position: relative;
   background-color: #eafcfb;
   width: 100%; /* 100% del ancho del viewport */
-  margin: 0 auto; /* Agrega esta línea para centrar horizontalmente */  
   height: 1453px;
   font-size: var(--wspregistraduriagovco-open-sans-regular-16-size);
   color: var(--wspregistraduriagovco-prussian-blue);

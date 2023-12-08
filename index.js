@@ -1,27 +1,3 @@
-function verificarCaptcha() {
-  var siteKey = 'f3472822-9172-40b2-944f-1c6e3118cd49'; // Reemplaza con tu clave de sitio hCaptcha
-
-  // Asegúrate de que el contenedor del captcha sea único y tenga el ID 'tu-elemento-captcha'
-  var captchaContainer = document.getElementById('tu-elemento-captcha');
-
-  if (!captchaContainer || captchaContainer.hasAttribute('data-hcaptcha-rendered')) {
-      // If the container does not exist or has already been rendered, do nothing
-      return;
-  }
-  
-  // Mark the container to avoid duplicate rendering
-  captchaContainer.setAttribute('data-hcaptcha-rendered', 'true');
-  
-  // Render the captcha
-  hcaptcha.render(captchaContainer, {
-      sitekey: siteKey,
-      callback: function (token) {
-          // Captcha has been verified, now you can perform the search
-          iniciarBusqueda();
-      },
-  });
-}
-
 function iniciarBusqueda() {
   // Llama a la función para leer el archivo Excel y construir la tabla
   leerArchivoExcel();
