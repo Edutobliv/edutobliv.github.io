@@ -954,6 +954,18 @@ body {
   height: 500px;
 }
 
+@media (max-width: 768px){
+  .frame {
+    position: absolute;
+    top: 63px;
+    left: -6px;
+    width: 1350px;
+    align-items: center;
+    justify-content: flex-start
+}
+}
+
+
 @media (max-width: 768px) {
   .identificacion {
     width: 380px;
