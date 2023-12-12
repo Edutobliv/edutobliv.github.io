@@ -4,6 +4,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #eafcfb;
 }
 
 .frame-off{
@@ -934,7 +935,6 @@ body {
 }
 .register {
   position: relative;
-  background-color: #eafcfb;
   width: 100%; /* 100% del ancho del viewport */
   height: 1453px;
   font-size: var(--wspregistraduriagovco-open-sans-regular-16-size);
@@ -954,37 +954,14 @@ body {
   height: 500px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
   .identificacion {
     width: 380px;
-    align-items: center;
-    justify-content: center;
-    padding: 563px;
+    margin-left: 404px; /* Esto centra el elemento horizontalmente */
+    padding: 10px; /* Ajusta este valor según tus necesidades para agregar espacio interno */
     min-height: 1px;
   }
 }
-
-@media (max-width: 500px) {
-  .identificacion {
-    width: 380px;
-    align-items: center;
-    justify-content: center;
-    padding: 563px;
-    min-height: 1px;
-  }
-}
-
-@media (max-width: 610px) {
-  .identificacion {
-    width: 380px;
-    align-items: center;
-    justify-content: center;
-    padding: 480px;
-    min-height: 1px;
-  }
-}
-
-
 /* En pantallas de tablet */
 @media (max-width: 768px) {
   .elemento {
